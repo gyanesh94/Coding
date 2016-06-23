@@ -48,7 +48,7 @@ int main() {
         }
     }
 
-    graph.breadFirstSearch(startElement);
+    graph.depthFirstSearch(startElement);
 
     return 0;
 }

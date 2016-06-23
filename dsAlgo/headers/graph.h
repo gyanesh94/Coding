@@ -2,6 +2,7 @@
 #define DSALGO_GRAPH_H
 
 #include <list>
+#include <stack>
 #include <iostream>
 
 using namespace std;
@@ -21,6 +22,8 @@ public:
         prints BFS traversal from a given source s
     */
     void breadFirstSearch(int startElement);
+
+    void depthFirstSearch(int startElement);
 };
 
 

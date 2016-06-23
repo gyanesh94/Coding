@@ -37,6 +37,33 @@ void graph::breadFirstSearch(int startElement) {
             }
         }
     }
+    cout << endl;
+}
 
+void graph::depthFirstSearch(int startElement) {
+    bool *visited = new bool[this->v];
+    stack<int> stack;
+    int i, currentElement;
+    list<int>::iterator iterator;
+
+    for (i = 0; i < this->v; i++) {
+        visited[i] = false;
+    }
+
+    stack.push(startElement);
+    visited[startElement] = true;
+
+    while (!stack.empty()) {
+        currentElement = stack.top();
+        stack.pop();
+        cout << currentElement;
+
+        for (iterator = this->adj[currentElement].begin(); iterator != this->adj[currentElement].end(); iterator++) {
+            if (!visited[*iterator]) {
+                stack.push(*iterator);
+                visited[*iterator] = true;
+            }
+        }
+    }
     cout << endl;
 }
