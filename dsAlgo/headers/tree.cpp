@@ -50,11 +50,37 @@ void tree::printElementsAtAGivenHeight(node *start, int height) {
     }
 }
 
-
 void tree::printLevelOrderTraversalMethod1(node *start) {
     int heightOfTree = giveHeightOfTree(start);
     for (int i = 1; i <= heightOfTree; i++) {
         printElementsAtAGivenHeight(start, i);
         cout << endl;
     }
+}
+
+void tree::printLevelOrderTraversalMethod2(node *start) {
+    if (start == NULL) {
+        return;
+    }
+
+    queue<node*> queue;
+    queue.push(start);
+
+    node *temp;
+
+    while(!queue.empty()) {
+        temp = queue.front();
+        queue.pop();
+
+        if (temp == NULL) {
+            continue;
+        }
+
+        cout << temp->data << endl;
+
+        queue.push(temp->left);
+        queue.push(temp->right);
+    }
+
+    return;
 }
