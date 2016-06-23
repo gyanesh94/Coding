@@ -5,7 +5,7 @@ int main() {
     bool dummy = true;
 
     if (dummy) {
-        totalGraphElements = 5;
+        totalGraphElements = 10;
     } else {
         cout << "Enter total graph elements= ";
         cin >> totalGraphElements;
@@ -16,9 +16,14 @@ int main() {
     if (dummy) {
         graph.addEdge(0,1);
         graph.addEdge(1,3);
+        graph.addEdge(1,2);
+        graph.addEdge(1,5);
+        graph.addEdge(2,3);
         graph.addEdge(2,4);
-        graph.addEdge(3,4);
-        graph.addEdge(4,2);
+        graph.addEdge(6,7);
+        graph.addEdge(6,8);
+        graph.addEdge(7,8);
+        graph.addEdge(8,9);
     } else {
         int flag = 1, source, destination;
         while (flag) {
@@ -48,7 +53,7 @@ int main() {
         }
     }
 
-    graph.depthFirstSearch(startElement);
+    graph.breadFirstSearchDisconnectedGraph(startElement);
 
     return 0;
 }
