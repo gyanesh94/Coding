@@ -1,12 +1,4 @@
-//
-// Created by Gyanesh Mittal on 23/06/16.
-//
-
-#include <iostream>
-#include <list>
 #include "graph.h"
-
-using namespace std;
 
 graph::graph(int v) {
     this->v = v;

@@ -1,7 +1,4 @@
-#include <iostream>
 #include "headers/graph.cpp"
-
-using namespace std;
 
 int main() {
     int totalGraphElements, startElement;
