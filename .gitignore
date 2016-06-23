@@ -1,9 +1,12 @@
 ## OS
 .DS_Store
 
+# Particular File
+CMakeLists.txt
 
 ## IDE
 .pyc
+.idea/
 
 
 ## android
