@@ -1,59 +1,33 @@
-#include "headers/graph.cpp"
+/*
+    0 --> 1 --> 2 --> 4         6 --> 7
+         / \   /                \    /
+        /   \ /                  \  /
+       5     3                    8 --> 9
+*/
+#include "headers/graphList.cpp"
 
-int main() {
+void graphListTraversal() {
     int totalGraphElements, startElement;
-    bool dummy = true;
+    totalGraphElements = 10;
+    graphList graph(totalGraphElements);
 
-    if (dummy) {
-        totalGraphElements = 10;
-    } else {
-        cout << "Enter total graph elements= ";
-        cin >> totalGraphElements;
-    }
+    graph.addEdge(0, 1);
+    graph.addEdge(1, 3);
+    graph.addEdge(1, 2);
+    graph.addEdge(1, 5);
+    graph.addEdge(2, 3);
+    graph.addEdge(2, 4);
+    graph.addEdge(6, 7);
+    graph.addEdge(6, 8);
+    graph.addEdge(7, 8);
+    graph.addEdge(8, 9);
 
-    graph graph(totalGraphElements);
-
-    if (dummy) {
-        graph.addEdge(0,1);
-        graph.addEdge(1,3);
-        graph.addEdge(1,2);
-        graph.addEdge(1,5);
-        graph.addEdge(2,3);
-        graph.addEdge(2,4);
-        graph.addEdge(6,7);
-        graph.addEdge(6,8);
-        graph.addEdge(7,8);
-        graph.addEdge(8,9);
-    } else {
-        int flag = 1, source, destination;
-        while (flag) {
-            cout << "Enter Source= ";
-            cin >> source;
-            cout << "Enter Destination= ";
-            cin >> destination;
-            if (source < totalGraphElements && destination < totalGraphElements) {
-                graph.addEdge(source,destination);;
-            } else {
-                cout << "Wrong Source or destination." << endl;
-            }
-            cout << "To add more links enter 1 else 0= ";
-            cin >> flag;
-        }
-    }
-
-    if(dummy) {
-        startElement = 0;
-    } else {
-        cout << "Enter Start Element= ";
-        cin >> startElement;
-
-        if (startElement > totalGraphElements) {
-            cout << "Incorrect Start Element" << endl;
-            return 0;
-        }
-    }
+    startElement = 0;
 
     graph.breadFirstSearchDisconnectedGraph(startElement);
+}
 
+int main() {
+    graphListTraversal();
     return 0;
 }

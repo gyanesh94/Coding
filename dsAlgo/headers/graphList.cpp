@@ -1,18 +1,18 @@
-#include "graph.h"
+#include "graphList.h"
 
-graph::graph(int v) {
+graphList::graphList(int v) {
     this->v = v;
     this->adj = new list<int>[v];
 }
 
-void graph::addEdge(int sourceVertex, int destinationVertex) {
+void graphList::addEdge(int sourceVertex, int destinationVertex) {
     if (sourceVertex > this->v || destinationVertex > this->v) {
         cout << "wrong source or destination vertex";
     }
     this->adj[sourceVertex].push_back(destinationVertex);
 }
 
-void graph::breadFirstSearch(int startElement) {
+void graphList::breadFirstSearch(int startElement) {
     bool *visited = new bool[this->v];
     list<int> queue;
     int i, currentElement;
@@ -40,7 +40,7 @@ void graph::breadFirstSearch(int startElement) {
     cout << endl;
 }
 
-void graph::depthFirstSearch(int startElement) {
+void graphList::depthFirstSearch(int startElement) {
     bool *visited = new bool[this->v];
     stack<int> stack;
     int i, currentElement;
@@ -68,7 +68,7 @@ void graph::depthFirstSearch(int startElement) {
     cout << endl;
 }
 
-void graph::breadFirstSearchDisconnectedGraph(int startElement) {
+void graphList::breadFirstSearchDisconnectedGraph(int startElement) {
     bool *visited = new bool[this->v];
     int i;
 
@@ -86,7 +86,7 @@ void graph::breadFirstSearchDisconnectedGraph(int startElement) {
     cout << endl;
 }
 
-void graph::breadFirstSearchDisconnectedGraphUtils(int node, bool *visited) {
+void graphList::breadFirstSearchDisconnectedGraphUtils(int node, bool *visited) {
 
     queue<int> queue;
 
@@ -104,7 +104,7 @@ void graph::breadFirstSearchDisconnectedGraphUtils(int node, bool *visited) {
     }
 }
 
-void graph::depthFirstSearchDisconnectedGraph(int startElement) {
+void graphList::depthFirstSearchDisconnectedGraph(int startElement) {
     bool *visited = new bool[this->v];
     int i;
 
@@ -120,7 +120,7 @@ void graph::depthFirstSearchDisconnectedGraph(int startElement) {
     cout << endl;
 }
 
-void graph::depthFirstSearchDisconnectedGraphUtils(int node, bool *visited) {
+void graphList::depthFirstSearchDisconnectedGraphUtils(int node, bool *visited) {
     cout << node << " ";
     visited[node] = true;
 
