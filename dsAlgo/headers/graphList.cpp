@@ -130,3 +130,73 @@ void graphList::depthFirstSearchDisconnectedGraphUtils(int node, bool *visited) 
         }
     }
 }
+
+bool graphList::detectCycleInAGraph(int startElement) {
+    bool *visited = new bool[this->v];
+    bool *recursion = new bool[this->v];
+    int i;
+
+    for (i = 0; i < this->v; i++) {
+        visited[i] = false;
+        recursion[i] = false;
+    }
+
+    for (i = 0; i < this->v; i++) {
+        if (!visited[i]) {
+            if (detectCycleInAGraphUtils(i, visited, recursion)) {
+                return true;
+            }
+        }
+    }
+    return false;
+}
+
+bool graphList::detectCycleInAGraphUtils(int node, bool *visited, bool *recursion) {
+    visited[node] = true;
+    recursion[node] = true;
+
+    for (list<int>::iterator iterator = this->adj[node].begin(); iterator != this->adj[node].end(); iterator++) {
+        if (!visited[*iterator] && detectCycleInAGraphUtils(*iterator, visited, recursion)) {
+            return true;
+        } else if (recursion[*iterator]) {
+            return true;
+        }
+    }
+
+    recursion[node] = false;
+    return false;
+}
+
+bool graphList::detectCycleInAGraphUsingColors(int startElement) {
+    Color *color = new Color[this->v];
+    int i;
+
+    for (i = 0; i < this->v; i++) {
+        color[i] = WHITE;
+    }
+
+    for (i = 0; i < this->v; i++) {
+        if (color[i] == WHITE) {
+            if (detectCycleInAGraphUsingColorsUtils(i, color)) {
+                return true;
+            }
+        }
+    }
+    return false;
+}
+
+bool graphList::detectCycleInAGraphUsingColorsUtils(int node, Color *color) {
+    color[node] = GRAY;
+
+    for (list<int>::iterator iterator = this->adj[node].begin(); iterator != this->adj[node].end(); iterator++) {
+        if (color[*iterator] == GRAY) {
+            return true;
+        }
+        if (color[*iterator] == WHITE && detectCycleInAGraphUsingColorsUtils(*iterator, color)) {
+            return true;
+        }
+    }
+
+    color[node] = BLACK;
+    return false;
+}
