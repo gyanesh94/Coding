@@ -20,7 +20,7 @@ class graphList {
     bool detectCycleInAGraphUsingColorsUtils(int node, Color *color);
 public:
     graphList(int v);  // Constructor
-    void addEdge(int sourceVertex, int destinationVertex); // function to add an edge to graphList
+    void addEdge(int sourceVertex, int destinationVertex); // function to add an edgeConfig to graphList
 
     /*
         Breadth And Depth First Search
@@ -36,25 +36,36 @@ public:
     void depthFirstSearchDisconnectedGraph(int startElement);
 
     /*
-        Depth First Traversal can be used to detect cycle in a Graph. DFS for a connected graph produces a tree.
-        There is a cycle in a graph only if there is a back edge present in the graph.
-        A back edge is an edge that is from a node to itself (selfloop) or one of its ancestor in the tree produced by DFS.
-        In the following graph, there are 3 back edges, marked with cross sign. We can observe that these 3 back edges
-        indicate 3 cycles present in the graph.
+        Detect Cycle in a Directed Graph
+
+        Method 1
+
+        Depth First Traversal can be used to detect cycle in a Graph. DFS for a connected graphConfig produces a tree.
+        There is a cycle in a graphConfig only if there is a back edgeConfig present in the graphConfig.
+        A back edgeConfig is an edgeConfig that is from a node to itself (selfloop) or one of its ancestor in the tree produced by DFS.
+        In the following graphConfig, there are 3 back edges, marked with cross sign. We can observe that these 3 back edges
+        indicate 3 cycles present in the graphConfig.
 
         Rec array is used to store whether the status of traversal of the node
 
-        To detect a back edge, we can keep track of vertices currently in recursion stack of function for DFS traversal.
+        To detect a back edgeConfig, we can keep track of vertices currently in recursion stack of function for DFS traversal.
         If we reach a vertex that is already in the recursion stack, then there is a cycle in the tree.
-        The edge that connects current vertex to the vertex in the recursion stack is back edge.
+        The edgeConfig that connects current vertex to the vertex in the recursion stack is back edgeConfig.
         We have used recStack[] array to keep track of vertices in the recursion stack.
 
         Time Complexity of this method is same as time complexity of DFS traversal which is O(V+E).
+
+        For undirected graph no need of recursion stack
+        If we reach visited node again than it contains cycle
     */
 
     bool detectCycleInAGraph(int startElement);
 
     /*
+        Detect Cycle in a Directed Graph
+
+        Method 1
+
         WHITE : Vertex is not processed yet.  Initially
                 all vertices are WHITE.
 
@@ -67,11 +78,14 @@ public:
         BLACK : Vertex and all its descendants are
                 processed.
 
-        While doing DFS, if we encounter an edge from current
-        vertex to a GRAY vertex, then this edge is back edge
+        While doing DFS, if we encounter an edgeConfig from current
+        vertex to a GRAY vertex, then this edgeConfig is back edgeConfig
         and hence there is a cycle.
 
         Time Complexity of this method is same as time complexity of DFS traversal which is O(V+E).
+
+        For undirected graph only two colors are required one for unprocessed other for processed
+        If we reach processed node again than it contains cycle
      */
     bool detectCycleInAGraphUsingColors(int startElement);
 };
