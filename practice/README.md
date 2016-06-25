@@ -26,4 +26,114 @@
 	1
 	0
 	
-	**Note - Use squres instead of square root to get correct result
+	**Note - Use squres instead of square root to get correct result		
+
+<br>
+
+###[Question 2](./question2.cpp)
+#####Overlapping rectangles
+
+
+    Given two rectangles, find if the given two rectangles overlap or not. A rectangle is denoted by providing the x and y co-ordinates of two points: the left top corner and the right bottom corner of the rectangle.
+
+    Note that two rectangles sharing a side are considered overlapping.
+
+    rectanglesOverlap
+
+    Input:
+
+    The first integer T denotes the number of test cases. For every test case, there are 2 lines of input. The first line consists of 4 integers: denoting the co-ordinates of the 2 points of the first rectangle. The first integer denotes the x co-ordinate and the second integer denotes the y co-ordinate of the left topmost corner of the first rectangle. The next two integers are the x and y co-ordinates of right bottom corner. Similarly, the second line denotes the cordinates of the two points of the second rectangle.
+
+
+    Output:
+
+    For each test case, output (either 1 or 0) denoting whether the 2 rectangles are overlapping. 1 denotes the rectangles overlap whereas 0 denotes the rectangles do not overlap.
+
+
+    Constraints:
+
+    1 <= T <= 10
+
+    -10000 <= x,y <= 10000
+
+    T denotes the number of test cases. x denotes the x co-ordinate and y denotes the y co-ordinate.
+
+
+    Example:
+
+    Input:
+
+    4
+    0 10 10 0
+    5 5 15 0
+    0 2 1 1
+    -2 -3 0 2
+    0 2 1 1
+    -2 3 0 2
+    0 10 10 0
+    5 5 15 0
+
+    Output:
+
+    1
+    0
+    0
+    1
+    
+    **Note - It is on assumption that line or point touching is not considered as overlapping. If it is than add '=' in method 1 or remove '=' in method 2
+    
+<br>
+
+###[Question 3](./question3.cpp)
+#####Equal to product
+
+
+    Given an array of integers check whether there are two numbers present with given product.
+    
+    Input:
+    
+    The first line of input contains an integer T denoting the number of test cases.
+    The first line of each test case is N and a product p.
+    The second line of each test case contain N number of a[].
+    
+    Output:
+    Print Yes if two numbers product is equal to p else No.
+    
+    Constraints:
+    
+    1 ≤ T ≤ 51
+    1 ≤ N ≤ 100
+    0 ≤ a[] ≤ 1000
+    1 ≤ pro ≤ 2000000
+    
+    Example:
+    
+    Input:
+
+    7
+    5 2
+    1 2 3 4 5
+    8 46
+    5 7 9 22 15 344 92 8
+    2 4
+    2 2
+    2 4
+    2 1
+    2 0
+    2 1
+    2 0
+    0 1
+    2 2
+    0 1
+    
+    Output:
+    
+    Yes
+    No
+    Yes
+    No
+    No
+    Yes
+    No
+    
+    **Note - Each element is taken once
