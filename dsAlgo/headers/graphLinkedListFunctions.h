@@ -156,14 +156,104 @@ typedef struct subset {
 } subset;
 
 class unionFindMethod2 {
+public:
     int findParent(subset *parentSubset, int vertex);
 
     void unionSubset(subset *parentSubset, int source, int destination);
 
-public:
     bool isCyclic(graphConfig *graph);
 };
 
 
+/*
+    Greedy Algorithms | Set 2 (Kruskal’s Minimum Spanning Tree Algorithm)
+
+        What is Minimum Spanning Tree?
+        Given a connected and undirected graph, a spanning tree of that graph is a subgraph that is a tree and connects
+        all the vertices together. A single graph can have many different spanning trees. A minimum spanning tree (MST)
+        or minimum weight spanning tree for a weighted, connected and undirected graph is a spanning tree with weight
+        less than or equal to the weight of every other spanning tree. The weight of a spanning tree is the sum of
+        weights given to each edge of the spanning tree.
+
+        How many edges does a minimum spanning tree has?
+        A minimum spanning tree has (V – 1) edges where V is the number of vertices in the given graph.
+
+        What are the applications of Minimum Spanning Tree?
+        See this for applications of MST.
+
+        Below are the steps for finding MST using Kruskal’s algorithm
+
+        1. Sort all the edges in non-decreasing order of their weight.
+
+        2. Pick the smallest edge. Check if it forms a cycle with the spanning tree
+        formed so far. If cycle is not formed, include this edge. Else, discard it.
+
+        3. Repeat step#2 until there are (V-1) edges in the spanning tree.
+
+
+        Time Complexity: O(ElogE) or O(ElogV). Sorting of edges takes O(ELogE) time. After sorting, we iterate through
+            all edges and apply find-union algorithm. The find and union operations can take atmost O(LogV) time.
+            So overall complexity is O(ELogE + ELogV) time. The value of E can be atmost V^2, so O(LogV) are O(LogE)
+            same. Therefore, overall time complexity is O(ElogE) or O(ElogV)
+*/
+
+
+class minimumSpanningTree {
+    graphConfig *sortEdges(graphConfig *graph);
+
+public:
+    void kruskalMinimumSpanningTree(graphConfig *graph);
+};
+
+/*      Greedy Algorithms | Set 5 (Prim’s Minimum Spanning Tree (MST))
+
+        We have discussed Kruskal’s algorithm for Minimum Spanning Tree. Like Kruskal’s algorithm, Prim’s algorithm
+        is also a Greedy algorithm. It starts with an empty spanning tree. The idea is to maintain two sets of vertices.
+        The first set contains the vertices already included in the MST, the other set contains the vertices not yet
+        included. At every step, it considers all the edges that connect the two sets, and picks the minimum weight edge
+        from these edges. After picking the edge, it moves the other endpoint of the edge to the set containing MST.
+
+        A group of edges that connects two set of vertices in a graph is called cut in graph theory. So, at every step
+        of Prim’s algorithm, we find a cut (of two sets, one contains the vertices already included in MST and other
+        contains rest of the verices), pick the minimum weight edge from the cut and include this vertex to MST Set
+        (the set that contains already included vertices).
+
+        How does Prim’s Algorithm Work? The idea behind Prim’s algorithm is simple, a spanning tree means all vertices
+        must be connected. So the two disjoint subsets (discussed above) of vertices must be connected to make a
+        Spanning Tree. And they must be connected with the minimum weight edge to make it a Minimum Spanning Tree.
+
+        Algorithm
+        1) Create a set mstSet that keeps track of vertices already included in MST.
+        2) Assign a key value to all vertices in the input graph. Initialize all key values as INFINITE. Assign
+        key value as 0 for the first vertex so that it is picked first.
+        3) While mstSet doesn’t include all vertices
+        ….a) Pick a vertex u which is not there in mstSet and has minimum key value.
+        ….b) Include u to mstSet.
+        ….c) Update key value of all adjacent vertices of u. To update the key values, iterate through all adjacent
+        vertices. For every adjacent vertex v, if weight of edge u-v is less than the previous key value of v, update
+        the key value as weight of u-v
+
+        Time Complexity of the above program is O(V^2). If the input graph is represented using adjacency list,
+        then the time complexity of Prim’s algorithm can be reduced to O(E log V) with the help of binary heap.
+        Please see Prim’s MST for Adjacency List Representation for more details
+ */
+
+class primMinimumSpanningTree {
+    int V;
+    int **graph;
+
+    // A utility function to find the vertex with minimum key value, from
+    // the set of vertices not yet included in MST
+    int minKey(int *key, bool *mstSet);
+
+    // A utility function to print the constructed MST stored in parent[]
+    void printMST(int *parent, int n);
+public:
+    primMinimumSpanningTree(int V);
+
+    // Function to construct and print MST for a graph represented using adjacency
+    // matrix representation
+    void primMST();
+};
 
 #endif //DSALGO_GRAPHLINKEDLIST_H
