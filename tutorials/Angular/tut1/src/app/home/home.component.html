@@ -1,0 +1,39 @@
+<!-- [] is used to define the property binding to Javascript or angular code -->
+
+<!-- Two ways to change style using class binding -->
+<!-- Conditonal Attribute based on Parent element
+    class="gray" will be applied to h1 if h1Style is true
+    Apply only one class -->
+<h1 [class.gray]="h1Style" style="display: none;">Home</h1>
+
+<!-- for multiple class use ngClass -->
+<h1 [ngClass]="{
+  'gray': h1Style,
+  'large': !h1Style
+}" style="display: none;">Home</h1>
+
+
+<!-- Two ways to change style using style binding -->
+<!-- Apply only one style -->
+<h1 [style.color]="h1Style ? 'gray': 'black'" style="display: none;">Home</h1>
+
+<!-- Apply multiple style -->
+<h1 [ngStyle]="{
+  'color': h1Style ? 'gray' : 'black',
+  'font-size': !h1Style ? '1em' : '4em'
+}" style="display: none;">Home</h1>
+
+<!-- Events are initialized using () brackets -->
+<button (click)="firstClick()" style="display: none;">Click Me</button>
+
+
+<!-- MAIN PART AS PER TUTORIAL -->
+
+<h1>Home</h1>
+
+<ul *ngIf="users">
+  <li *ngFor="let user of users.data">
+    <img [src]="user.avatar">
+    <p>{{ user.first_name }} {{ user.last_name }}</p>
+  </li>
+</ul>
