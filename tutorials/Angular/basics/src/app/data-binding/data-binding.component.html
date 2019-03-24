@@ -1,0 +1,38 @@
+<!-- to use the ngModel we need to import FormsModule in app.module
+    import { FormsModule } from '@angular/forms'; -->
+<div class="container">
+  <div class="row border">
+    <div class="col-md-5">String Interpolation - used to send data from TS to HTML</div>
+    <div class="col-md-5">{{ 'String' }}{{ dummy }}{{ sendDummy() }}</div>
+  </div>
+  <div class="row border">
+    <div class="col-md-5">
+      Property Binding - [] brackets binds the property value to the varible we assign
+    </div>
+    <div class="col-md-5">
+      <button class="btn btn-primary" [disabled]="buttonDisabled">Button</button>
+      <p [innerText]="buttonDisabled"></p>
+    </div>
+  </div>
+  <div class="row border">
+    <div class="col-md-5">Event Binding - used to send data from HTML to TS</div>
+    <div class="col-md-5">
+        <button class="btn btn-primary" (click)="onButtonClicked()">Button</button>
+        <p>{{ buttonStatus }}</p>
+    </div>
+  </div>
+  <div class="row border">
+    <div class="col-md-5"> Event binding Use Case - $event is a reserved variable name for Event Binding. In this case it is data user entered</div>
+    <div class="col-md-5">
+        <input type="text" (input)="onInputChange($event)" class="form-control">
+        <p>{{ inputData }}</p>
+    </div>
+  </div>
+  <div class="row border">
+    <div class="col-md-5">Two Way Binding</div>
+    <div class="col-md-5">
+        <input type="text" [(ngModel)]="name" class="form-control">
+        <p>{{ name }}</p>
+    </div>
+  </div>
+</div>
