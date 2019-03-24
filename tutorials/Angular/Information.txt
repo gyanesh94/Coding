@@ -1,0 +1,3 @@
+Directive
+- * is used in front of ngIf because it is a structural directive. It add adds the element or remove it.
+- ngFor="let item of items; let i = index" i = index is used to get index of current item. index is reserved variable
