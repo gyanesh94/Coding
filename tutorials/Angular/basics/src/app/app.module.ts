@@ -8,6 +8,7 @@ import { DataBindingComponent } from './data-binding/data-binding.component';
 import { ServerComponent } from './server/server.component';
 import { SelectorAttributeComponent } from './selector-attribute/selector-attribute.component';
 import { SelectorClassComponent } from './selector-class/selector-class.component';
+import { ComponentBindingComponent } from './component-binding/component-binding.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { SelectorClassComponent } from './selector-class/selector-class.componen
     DataBindingComponent,
     ServerComponent,
     SelectorAttributeComponent,
-    SelectorClassComponent
+    SelectorClassComponent,
+    ComponentBindingComponent
   ],
   imports: [
     BrowserModule,

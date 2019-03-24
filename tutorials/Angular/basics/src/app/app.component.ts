@@ -7,4 +7,13 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'basics';
+
+  childText = 'child property binded';
+  childAlias = 'child alias property binded';
+
+  eventEmittedText: string;
+
+  buttonClickedInChild(data: string) {
+    this.eventEmittedText = data;
+  }
 }

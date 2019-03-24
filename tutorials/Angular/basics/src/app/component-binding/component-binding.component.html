@@ -1,0 +1,13 @@
+<div class="container">
+  <div class="row" *ngIf="!eventEmittion">
+    <div>
+      {{ childProperty }}
+    </div>
+    <div>
+      {{ childPropertyAlias }}
+    </div>
+  </div>
+  <div class="row" *ngIf="eventEmittion">
+    <button class="btn btn-primary" type="button" (click)="emitEvent()">Emit Event</button>
+  </div>
+</div>
