@@ -1,3 +1,33 @@
 Directive
 - * is used in front of ngIf because it is a structural directive. It add adds the element or remove it.
 - ngFor="let item of items; let i = index" i = index is used to get index of current item. index is reserved variable
+
+Template
+- Local Reference
+  - ex adding <a #aElementLocalRef> inside HTML.
+  - aElementLocalRef can be used inside the HTML to refer to a tag Element.
+  - U can access it's any attribute aElementLocalRef.value or aElementLocalRef.href
+  - U can pass as function parameter to .TS
+
+Lifecycle
+- ngOnChanges
+  - Whenever there a change in property value decorated by @Input
+- ngOnInit
+  - Called after component is initialized
+  - Even after the constructor run.
+  - Only once
+- ngDoChecks
+  - called during every change detection
+  - Clicked Button, change in template, property change, setTimeout done, or observalable resolved
+- ngAfterContentInit
+  - called after ng-content has been projected to the view
+  - only once
+- ngAfterContentChecked
+  - Called every time project content has been checked
+- ngAfterViewInit
+  - called after the component's view and child views has been initialized
+  - ie all the views has been rendered
+- ngAfterViewChecked
+  - called after the component's view and child views has been checked
+- ngOnDestroy
+  - called once the component is about to be destroyed
