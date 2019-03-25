@@ -31,3 +31,16 @@ Lifecycle
   - called after the component's view and child views has been checked
 - ngOnDestroy
   - called once the component is about to be destroyed
+
+Service
+- They are done via hierarchial injection
+- always go down the child component not the up
+- If we write access a Service in root component then same instance will be accessible to it's child component
+  - But if add service to Child Component provider then it will overwrite the parents component service i.e new instance of service
+  - So to access same instance as parent don't add to providers list
+- app.module.ts is the highest level.
+  - This makes sure every corner of the application of this Module will be able to access same instance of the service unless it is overwritten by providing in providers
+- We can inject a service to another service
+  - In order to this we need to add metadata to the service like @Component
+  - In case of service metadata used is @Injectable to the receiving service
+  - Also to Inject the injected service must be present at the root level i.e app.module.ts

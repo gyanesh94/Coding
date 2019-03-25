@@ -14,6 +14,7 @@ import { BetterHighlightDirective } from './directives/better-highlight.directiv
 import { UnlessDirective } from './directives/unless.directive';
 import { CustomStructuralDirectiveExampleComponent } from './custom-structural-directive-example/custom-structural-directive-example.component';
 import { NgSwitchExampleComponent } from './ng-switch-example/ng-switch-example.component';
+import { AppLoggingServiceExampleComponent } from './app-logging-service-example/app-logging-service-example.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { NgSwitchExampleComponent } from './ng-switch-example/ng-switch-example.
     BetterHighlightDirective,
     UnlessDirective,
     CustomStructuralDirectiveExampleComponent,
-    NgSwitchExampleComponent
+    NgSwitchExampleComponent,
+    AppLoggingServiceExampleComponent
   ],
   imports: [
     BrowserModule,
