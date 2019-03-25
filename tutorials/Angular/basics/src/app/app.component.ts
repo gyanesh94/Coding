@@ -13,7 +13,13 @@ export class AppComponent {
 
   eventEmittedText: string;
 
+  valueOnRefButtonClicked: string;
+
   buttonClickedInChild(data: string) {
     this.eventEmittedText = data;
+  }
+
+  refButtonClicked(element: HTMLInputElement) {
+    this.valueOnRefButtonClicked = element.value;
   }
 }

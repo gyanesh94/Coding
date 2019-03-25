@@ -9,6 +9,8 @@ import { ServerComponent } from './server/server.component';
 import { SelectorAttributeComponent } from './selector-attribute/selector-attribute.component';
 import { SelectorClassComponent } from './selector-class/selector-class.component';
 import { ComponentBindingComponent } from './component-binding/component-binding.component';
+import { BasicHighlightDirective } from './directives/basic-highlight.directive';
+import { BetterHighlightDirective } from './directives/better-highlight.directive';
 
 @NgModule({
   declarations: [
@@ -17,7 +19,9 @@ import { ComponentBindingComponent } from './component-binding/component-binding
     ServerComponent,
     SelectorAttributeComponent,
     SelectorClassComponent,
-    ComponentBindingComponent
+    ComponentBindingComponent,
+    BasicHighlightDirective,
+    BetterHighlightDirective
   ],
   imports: [
     BrowserModule,
