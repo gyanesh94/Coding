@@ -1,0 +1,7 @@
+<button
+  class="btn btn-primary"
+  type="button"
+  (click)="changeBooleanValue()"
+>Change Flag</button>
+<p *appUnless="flag">Custom Better Attribute Directive Working flag - False</p>
+<p *ngIf="flag">ngIf directive flag - True</p>

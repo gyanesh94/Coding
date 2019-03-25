@@ -11,6 +11,9 @@ import { SelectorClassComponent } from './selector-class/selector-class.componen
 import { ComponentBindingComponent } from './component-binding/component-binding.component';
 import { BasicHighlightDirective } from './directives/basic-highlight.directive';
 import { BetterHighlightDirective } from './directives/better-highlight.directive';
+import { UnlessDirective } from './directives/unless.directive';
+import { CustomStructuralDirectiveExampleComponent } from './custom-structural-directive-example/custom-structural-directive-example.component';
+import { NgSwitchExampleComponent } from './ng-switch-example/ng-switch-example.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +24,10 @@ import { BetterHighlightDirective } from './directives/better-highlight.directiv
     SelectorClassComponent,
     ComponentBindingComponent,
     BasicHighlightDirective,
-    BetterHighlightDirective
+    BetterHighlightDirective,
+    UnlessDirective,
+    CustomStructuralDirectiveExampleComponent,
+    NgSwitchExampleComponent
   ],
   imports: [
     BrowserModule,
