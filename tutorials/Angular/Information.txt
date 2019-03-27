@@ -44,3 +44,38 @@ Service
   - In order to this we need to add metadata to the service like @Component
   - In case of service metadata used is @Injectable to the receiving service
   - Also to Inject the injected service must be present at the root level i.e app.module.ts
+
+Routing
+- need to specify RouterModule in our module file
+- done using 'routerLink'
+- routerLinkActive is used to add class to the element or its wrapping element whenever it is active
+  - It starts from root and gives the class to every element that matches or subpart of the current URL.
+    - ex /server will give class to both / and /server
+    - to disable this use [routerLinkActive]="{exact: true}"
+- routerLink always knows on which page are we at and whats the route of it. So we add relative link then it goes to the page in reference to the current one
+- If route using the code Router.navigate, it doesn't know at which path are at. So it always routes take home as the base URL
+  - To route relative to some path u can give extras {relativeTo: route} and use relativeTo property
+    - route is got from the constructor. route: ActivatedRoute type. Giving current route
+- parameters passed to the component while routing
+  - first define in the routes the parameter name using /: like users/:id/:name in app module
+  - to send the data using routerLink done in two ways:
+    - routerLink="users/10/Max"
+    - [routerLink]="['users', 10, 'Max']"
+  - to access the parameter get the route using ActivatedRoute and use route.snapshot.params['id']
+    - This approach is fine when we access the data for the first time
+    - But this will not work if route to this again but component is already loaded.
+      - i.e component is loading itself with new params
+      - it just change the URL nothing else
+      - To get the changes reactively we use another approach
+        - using route.params i.e without snapshot.
+        - using this gives the observable which is used for asynchronous tasks
+      - ex route.params.subscribe((params: Params) => {})
+  - queryParams
+    - not a new directive. a property of routerLink
+    - used to pass some information in "?a=1" format
+    - eg [queryParams]="{allowEdit: 1}"
+    - when sending programtically send this just like relativeTo done above in extra part {queryParams: {allowEdit: '1'}}
+  - fragment
+    - used to send # parameters
+    - eg fragment="loading" will send #loading at the end of URL
+  - queryParamsHandling attribute used to describe how previvous parameters to be passed to to new routes, 'merge', 'preserve'
